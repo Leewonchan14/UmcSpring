@@ -4,7 +4,7 @@ import lombok.*;
 import umc.spring.umcspring.Domain.Common.BaseEntity;
 import umc.spring.umcspring.Domain.Enum.Gender;
 import umc.spring.umcspring.Domain.Enum.SocialType;
-import umc.spring.umcspring.Domain.Enum.Status;
+import umc.spring.umcspring.Domain.Enum.MemberStatus;
 import umc.spring.umcspring.Domain.Mapping.MemberAgree;
 import umc.spring.umcspring.Domain.Mapping.MemberMission;
 import umc.spring.umcspring.Domain.Mapping.MemberPrefer;
@@ -46,7 +46,7 @@ public class Member extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "varchar(15) default 'ACTIVE'")
-    private Status status;
+    private MemberStatus memberStatus;
 
     private LocalDateTime inactiveDate;
 
