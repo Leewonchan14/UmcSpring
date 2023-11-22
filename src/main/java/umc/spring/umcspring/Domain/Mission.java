@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter
-@Setter
 @AllArgsConstructor
 @Builder
 public class Mission extends BaseEntity {

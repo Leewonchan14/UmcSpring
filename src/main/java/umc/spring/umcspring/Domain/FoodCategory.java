@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Builder
-@Getter @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodCategory extends BaseEntity {
