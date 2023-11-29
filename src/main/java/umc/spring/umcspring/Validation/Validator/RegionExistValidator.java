@@ -27,7 +27,7 @@ public class RegionExistValidator implements ConstraintValidator<ExistRegion, Lo
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(ErrorStatus.REGION_NOT_FOUND.getMessage()).addConstraintViolation();
+            context.buildConstraintViolationWithTemplate(ErrorStatus.REGION_NOT_FOUND.toString()).addConstraintViolation();
         }
 
         return isValid;

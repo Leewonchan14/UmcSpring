@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExistRegion {
-    String message() default "해당 지역이 존재하지 않습니다.";
+    String message() default "지역이 없습니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

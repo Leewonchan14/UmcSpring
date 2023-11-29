@@ -17,11 +17,11 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     private final RegionRepository regionRepository;
 
     @Override
-    public Store createStore(StoreRequestDTO.CreateDTO request) {
+    public Store createStore(StoreRequestDTO.CreateDTO request, Long regionId) {
         
         Store newStore = StoreConverter.toStore(request);
 
-        Region region = regionRepository.findById(request.getRegionId()).get();
+        Region region = regionRepository.findById(regionId).get();
 
         newStore.setRegion(region);
 
