@@ -1,6 +1,9 @@
 package umc.spring.umcspring.Domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.umcspring.Domain.Common.BaseEntity;
 import umc.spring.umcspring.Domain.Enum.Gender;
 import umc.spring.umcspring.Domain.Enum.SocialType;
@@ -17,6 +20,8 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @Getter
 public class Member extends BaseEntity {
@@ -52,6 +57,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 50)
     private String email;
 
+    @ColumnDefault("0")
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

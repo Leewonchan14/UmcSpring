@@ -24,4 +24,18 @@ public class MemberPrefer {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private FoodCategory foodCategory;
+
+    public void setMember(Member member) {
+        if (this.member != null) {
+            this.member.getMemberPreferList().remove(this);
+        }
+        this.member = member;
+        if (!member.getMemberPreferList().contains(this)) {
+            member.getMemberPreferList().add(this);
+        }
+    }
+
+    public void setFoodCategory(FoodCategory foodCategory) {
+        this.foodCategory = foodCategory;
+    }
 }
