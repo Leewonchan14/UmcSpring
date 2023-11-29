@@ -7,15 +7,15 @@ import umc.spring.umcspring.Web.Dto.StoreResponseDTO;
 import java.util.ArrayList;
 
 public class StoreConverter {
-    public static Store toStore(StoreRequestDTO.CreateDTO dto){
+    public static Store toStore(StoreRequestDTO.CreateStoreDTO dto){
         return Store.builder()
                 .name(dto.getName())
                 .address(dto.getAddress())
                 .reviewList(new ArrayList<>())
                 .build();
     }
-    public static StoreResponseDTO.CreateResultDTO toCreateResultDTO(Store store){
-        return StoreResponseDTO.CreateResultDTO.builder()
+    public static StoreResponseDTO.CreateStoreResultDTO toCreateResultDTO(Store store){
+        return StoreResponseDTO.CreateStoreResultDTO.builder()
                 .storeId(store.getId())
                 .createdAt(store.getCreatedAt())
                 .build();

@@ -17,7 +17,7 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     private final RegionRepository regionRepository;
 
     @Override
-    public Store createStore(StoreRequestDTO.CreateDTO request, Long regionId) {
+    public Store createStore(StoreRequestDTO.CreateStoreDTO request, Long regionId) {
         
         Store newStore = StoreConverter.toStore(request);
 

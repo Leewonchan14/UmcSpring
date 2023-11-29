@@ -1,6 +1,7 @@
 package umc.spring.umcspring.Domain;
 
 import lombok.*;
+import umc.spring.umcspring.Domain.Common.BaseEntity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Review {
+public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +34,22 @@ public class Review {
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     @Builder.Default
     private List<ReviewImage> reviewImageList = new ArrayList<>();
+
+    public void setMember(Member member) {
+        this.member = member;
+
+        List<Review> reviewList = member.getReviewList();
+
+        if (!reviewList.contains(this))
+            reviewList.add(this);
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+
+        List<Review> reviewList = store.getReviewList();
+
+        if (!reviewList.contains(this))
+            reviewList.add(this);
+    }
 }

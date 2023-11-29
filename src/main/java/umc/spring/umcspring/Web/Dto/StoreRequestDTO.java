@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 public class StoreRequestDTO {
     @Getter
-    public static class CreateDTO{
+    public static class CreateStoreDTO {
         @NotBlank
         private String name;
         @Size(min = 5, max = 12)

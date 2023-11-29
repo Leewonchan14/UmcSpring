@@ -21,7 +21,7 @@ public class RegionRestController {
     private final RegionCommandService regionCommandService;
 
     @PostMapping("/")
-    public ApiResponse<RegionResponseDTO.CreateResultDTO> createRegion(@RequestBody @Valid RegionRequestDTO.CreateDTO request){
+    public ApiResponse<RegionResponseDTO.CreateRegionResultDTO> createRegion(@RequestBody @Valid RegionRequestDTO.CreateDTO request){
         Region region = regionCommandService.createRegion(request);
         return ApiResponse.onSuccess(RegionConverter.toRegionCreateResultDTO(region));
     }

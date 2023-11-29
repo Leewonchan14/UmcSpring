@@ -4,5 +4,5 @@ import umc.spring.umcspring.Domain.Store;
 import umc.spring.umcspring.Web.Dto.StoreRequestDTO;
 
 public interface StoreCommandService {
-    Store createStore(StoreRequestDTO.CreateDTO request, Long regionId);
+    Store createStore(StoreRequestDTO.CreateStoreDTO request, Long regionId);
 }

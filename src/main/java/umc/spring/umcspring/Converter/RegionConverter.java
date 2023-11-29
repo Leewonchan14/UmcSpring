@@ -11,8 +11,8 @@ public class RegionConverter {
                 .build();
     }
 
-    public static RegionResponseDTO.CreateResultDTO toRegionCreateResultDTO(Region region) {
-        return RegionResponseDTO.CreateResultDTO.builder()
+    public static RegionResponseDTO.CreateRegionResultDTO toRegionCreateResultDTO(Region region) {
+        return RegionResponseDTO.CreateRegionResultDTO.builder()
                 .regionId(region.getId())
                 .createdAt(region.getCreatedAt())
                 .build();

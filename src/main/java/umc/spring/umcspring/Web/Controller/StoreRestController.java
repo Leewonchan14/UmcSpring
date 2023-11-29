@@ -21,9 +21,9 @@ public class StoreRestController {
     private final StoreCommandService storeCommandService;
 
     @PostMapping("/regions/{regionId}")
-    public ApiResponse<StoreResponseDTO.CreateResultDTO> createStore(
+    public ApiResponse<StoreResponseDTO.CreateStoreResultDTO> createStore(
             @PathVariable @ExistRegion Long regionId,
-            @RequestBody @Valid StoreRequestDTO.CreateDTO request
+            @RequestBody @Valid StoreRequestDTO.CreateStoreDTO request
     ) {
 
         Store newStore = storeCommandService.createStore(request, regionId);
