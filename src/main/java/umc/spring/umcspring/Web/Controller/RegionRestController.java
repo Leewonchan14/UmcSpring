@@ -23,6 +23,6 @@ public class RegionRestController {
     @PostMapping("/")
     public ApiResponse<RegionResponseDTO.CreateRegionResultDTO> createRegion(@RequestBody @Valid RegionRequestDTO.CreateDTO request){
         Region region = regionCommandService.createRegion(request);
-        return ApiResponse.onSuccess(RegionConverter.toRegionCreateResultDTO(region));
+        return ApiResponse.onSuccess(RegionConverter.toCreateRegionResultDTO(region));
     }
 }

@@ -14,7 +14,7 @@ public class StoreConverter {
                 .reviewList(new ArrayList<>())
                 .build();
     }
-    public static StoreResponseDTO.CreateStoreResultDTO toCreateResultDTO(Store store){
+    public static StoreResponseDTO.CreateStoreResultDTO toCreateStoreResultDTO(Store store){
         return StoreResponseDTO.CreateStoreResultDTO.builder()
                 .storeId(store.getId())
                 .createdAt(store.getCreatedAt())

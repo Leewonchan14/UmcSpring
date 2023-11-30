@@ -29,6 +29,6 @@ public class ReviewRestController {
 
         Review newReview = reviewCommandService.createReview(storeId, userId, request);
 
-        return ApiResponse.onSuccess(ReviewConverter.toCreateResultDTO(newReview));
+        return ApiResponse.onSuccess(ReviewConverter.toCreateReviewResultDTO(newReview));
     }
 }

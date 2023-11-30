@@ -40,6 +40,9 @@ public class Store extends BaseEntity {
     private List<Review> reviewList = new ArrayList<>();
 
     public void setRegion(Region region) {
+        if(this.region != null) {
+            this.region.getStoreList().remove(this);
+        }
         this.region = region;
         if (!region.getStoreList().contains(this)) {
             region.getStoreList().add(this);

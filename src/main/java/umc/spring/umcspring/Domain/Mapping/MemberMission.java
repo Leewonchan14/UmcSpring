@@ -29,4 +29,25 @@ public class MemberMission {
     @ManyToOne
     @JoinColumn(nullable = false, name = "mission_id")
     private Mission mission;
+
+
+    public void setMission(Mission mission) {
+        if (this.mission != null) {
+            this.mission.getMemberMissionList().remove(this);
+        }
+        this.mission = mission;
+        if (!mission.getMemberMissionList().contains(this)) {
+            mission.getMemberMissionList().add(this);
+        }
+    }
+
+    public void setMember(Member member) {
+        if (this.member != null) {
+            this.member.getMemberMissionList().remove(this);
+        }
+        this.member = member;
+        if (!member.getMemberMissionList().contains(this)) {
+            member.getMemberMissionList().add(this);
+        }
+    }
 }

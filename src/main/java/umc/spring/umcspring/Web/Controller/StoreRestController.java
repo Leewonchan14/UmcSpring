@@ -28,6 +28,6 @@ public class StoreRestController {
 
         Store newStore = storeCommandService.createStore(request, regionId);
 
-        return ApiResponse.onSuccess(StoreConverter.toCreateResultDTO(newStore));
+        return ApiResponse.onSuccess(StoreConverter.toCreateStoreResultDTO(newStore));
     }
 }

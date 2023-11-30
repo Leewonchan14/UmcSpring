@@ -12,7 +12,7 @@ public class ReviewConverter {
                 .build();
     }
 
-    public static ReviewResponseDTO.CreateReviewResultDTO toCreateResultDTO(Review review) {
+    public static ReviewResponseDTO.CreateReviewResultDTO toCreateReviewResultDTO(Review review) {
         return ReviewResponseDTO.CreateReviewResultDTO.builder()
                 .id(review.getId())
                 .createdAt(review.getCreatedAt())
