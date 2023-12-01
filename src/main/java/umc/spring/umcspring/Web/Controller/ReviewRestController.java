@@ -20,14 +20,14 @@ import javax.validation.Valid;
 @RequestMapping("reviews")
 public class ReviewRestController {
     private final ReviewCommandService reviewCommandService;
-    @PostMapping("/stores/{storeId}/users/{userId}")
+    @PostMapping("/stores/{storeId}/members/{memberId}")
     public ApiResponse<ReviewResponseDTO.CreateReviewResultDTO> createReview(
             @PathVariable @ExistStore Long storeId,
-            @PathVariable @ExistMember Long userId,
+            @PathVariable @ExistMember Long memberId,
             @RequestBody @Valid ReviewRequestDTO.CreateReviewDTO request
     ){
 
-        Review newReview = reviewCommandService.createReview(storeId, userId, request);
+        Review newReview = reviewCommandService.createReview(storeId, memberId, request);
 
         return ApiResponse.onSuccess(ReviewConverter.toCreateReviewResultDTO(newReview));
     }

@@ -19,12 +19,12 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     private final MemberRepository memberRepository;
 
     @Override
-    public Review createReview(Long storeId, Long userId, ReviewRequestDTO.CreateReviewDTO request) {
+    public Review createReview(Long storeId, Long memberId, ReviewRequestDTO.CreateReviewDTO request) {
         Review newReview = ReviewConverter.toReview(request);
 
         newReview.setStore(storeRepository.findById(storeId).get());
 
-        newReview.setMember(memberRepository.findById(userId).get());
+        newReview.setMember(memberRepository.findById(memberId).get());
 
         return reviewRepository.save(newReview);
     }

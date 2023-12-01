@@ -1,6 +1,7 @@
 package umc.spring.umcspring.Domain.Mapping;
 
 import lombok.*;
+import umc.spring.umcspring.Domain.Common.BaseEntity;
 import umc.spring.umcspring.Domain.Enum.MissionStatus;
 import umc.spring.umcspring.Domain.Member;
 import umc.spring.umcspring.Domain.Mission;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberMission {
+public class MemberMission extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
