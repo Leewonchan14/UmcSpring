@@ -1,6 +1,8 @@
 package umc.spring.umcspring.Domain.Mapping;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.umcspring.Domain.Common.BaseEntity;
 import umc.spring.umcspring.Domain.Enum.MissionStatus;
 import umc.spring.umcspring.Domain.Member;
@@ -13,6 +15,8 @@ import javax.persistence.*;
 @Setter
 @Builder
 @AllArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @NoArgsConstructor
 public class MemberMission extends BaseEntity {
     @Id

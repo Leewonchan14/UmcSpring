@@ -4,17 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import umc.spring.umcspring.Domain.Enum.MissionStatus;
 
 import java.time.LocalDateTime;
 
-public class MemberResponseDTO {
+public class MemberMissionResponseDTO {
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class JoinResultDTO {
-        Long memberId;
-        LocalDateTime createdAt;
+    public static class AcceptResultDTO {
+        private Long memberMissionId;
+        private LocalDateTime createdAt;
     }
 }

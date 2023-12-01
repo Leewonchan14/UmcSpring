@@ -9,4 +9,10 @@ import java.util.Optional;
 @Repository
 public interface MemberMissionRepository extends JpaRepository<MemberMission, Long> {
     Optional<MemberMission> findAllByMemberIdAndMissionId(Long memberId, Long missionId);
+
+    // exists by member id and mission id
+    boolean existsByMemberIdAndMissionId(Long memberId, Long missionId);
+
+    // findBy member id and mission id
+    Optional<MemberMission> findByMemberIdAndMissionId(Long memberId, Long missionId);
 }

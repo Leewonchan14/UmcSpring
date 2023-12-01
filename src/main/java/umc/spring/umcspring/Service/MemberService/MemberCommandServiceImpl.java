@@ -50,35 +50,4 @@ public class MemberCommandServiceImpl implements MemberCommandService {
 
         return memberRepository.save(newMember);
     }
-
-    @Override
-    @Transactional
-    public MemberMission acceptMission(Long memberId, Long missionId) {
-        // 멤버와 미션 찾기
-        Member findMember = memberRepository.findById(memberId).get();
-
-        // 미션 찾기
-        Mission findMission = missionRepository.findById(missionId).get();
-
-        // 이미 미션을 수락했는지 확인
-        memberMissionRepository.findAllByMemberIdAndMissionId(memberId, missionId)
-                .ifPresent(memberMission -> {
-                    throw new MemberMissionHandler(ErrorStatus.MISSION_ALREADY_EXIST);
-                });
-
-
-        // 미션 수락
-        MemberMission newMemberMission = MemberMission.builder()
-                .status(MissionStatus.CHALLENGING)
-                .build();
-
-
-        // 미션과 멤버 연결
-        newMemberMission.setMission(findMission);
-        // 멤버와 미션 연결
-        newMemberMission.setMember(findMember);
-
-        // 미션 저장
-        return memberMissionRepository.save(newMemberMission);
-    }
 }

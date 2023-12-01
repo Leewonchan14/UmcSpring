@@ -30,14 +30,4 @@ public class MemberRestController {
 
         return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(member));
     }
-
-    @PostMapping("/{memberId}/missions/{missionId}")
-    public ApiResponse<MemberResponseDTO.MemberMissionAcceptResultDTO> acceptMission(
-            @PathVariable @ExistMember Long memberId,
-            @PathVariable @ExistMission Long missionId
-    ) {
-        MemberMission newMemberMission = memberCommandService.acceptMission(memberId, missionId);
-
-        return ApiResponse.onSuccess(MemberMissionConvert.toAcceptMemberMissionResultDTO(newMemberMission));
-    }
 }
