@@ -20,9 +20,9 @@ import javax.validation.Valid;
 public class MissioniRestController {
     private final MissionCommandService missionCommandService;
     @PostMapping("/stores/{storeId}")
-    public ApiResponse<MissionResponseDTO.CreateMissionResultDTO> createMission(
+    public ApiResponse<MissionResponseDTO.MissionCreateResultDTO> createMission(
             @PathVariable @ExistStore Long storeId,
-            @RequestBody @Valid MissionRequestDTO.CreateMissionDTO request
+            @RequestBody @Valid MissionRequestDTO.MissionCreateDTO request
     ) {
         Mission newMission = missionCommandService.createMission(storeId, request);
 

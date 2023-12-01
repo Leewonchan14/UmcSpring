@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 public class RegionRequestDTO {
     @Getter
-    public static class CreateDTO{
+    public static class RegionCreateDTO {
         @NotBlank
         String name;
     }

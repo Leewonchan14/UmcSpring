@@ -9,7 +9,7 @@ public class RegionResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class CreateRegionResultDTO {
+    public static class RegionCreateResultDTO {
         private Long regionId;
         private LocalDateTime createdAt;
     }

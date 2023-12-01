@@ -12,7 +12,7 @@ public class StoreResponseDTO {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class CreateStoreResultDTO {
+    public static class StoreCreateResultDTO {
         private Long storeId;
         private LocalDateTime createdAt;
     }

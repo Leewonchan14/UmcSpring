@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 public class ReviewRequestDTO {
     @Getter
-    public static class CreateReviewDTO {
+    public static class ReviewCreateDTO {
         @NotBlank
         private String body;
         @Max(5)

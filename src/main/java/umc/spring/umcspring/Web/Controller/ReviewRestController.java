@@ -21,10 +21,10 @@ import javax.validation.Valid;
 public class ReviewRestController {
     private final ReviewCommandService reviewCommandService;
     @PostMapping("/stores/{storeId}/members/{memberId}")
-    public ApiResponse<ReviewResponseDTO.CreateReviewResultDTO> createReview(
+    public ApiResponse<ReviewResponseDTO.ReviewCreateResultDTO> createReview(
             @PathVariable @ExistStore Long storeId,
             @PathVariable @ExistMember Long memberId,
-            @RequestBody @Valid ReviewRequestDTO.CreateReviewDTO request
+            @RequestBody @Valid ReviewRequestDTO.ReviewCreateDTO request
     ){
 
         Review newReview = reviewCommandService.createReview(storeId, memberId, request);

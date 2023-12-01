@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public class MissionRequestDTO {
     @Getter
-    public static class CreateMissionDTO {
+    public static class MissionCreateDTO {
         @NotNull
         Integer reward;
         @NotNull
