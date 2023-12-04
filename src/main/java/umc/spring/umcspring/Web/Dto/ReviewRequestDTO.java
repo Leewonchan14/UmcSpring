@@ -10,6 +10,9 @@ public class ReviewRequestDTO {
     @Getter
     public static class ReviewCreateDTO {
         @NotBlank
+        private String title;
+
+        @NotBlank
         private String body;
         @Max(5)
         @Min(0)

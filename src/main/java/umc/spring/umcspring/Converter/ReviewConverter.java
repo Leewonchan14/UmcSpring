@@ -7,6 +7,7 @@ import umc.spring.umcspring.Web.Dto.ReviewResponseDTO;
 public class ReviewConverter {
     public static Review toReview(ReviewRequestDTO.ReviewCreateDTO request) {
         return Review.builder()
+                .title(request.getTitle())
                 .body(request.getBody())
                 .score(request.getScore())
                 .build();
