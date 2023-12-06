@@ -27,11 +27,11 @@ public class MemberMission extends BaseEntity {
     @Column(nullable = false, columnDefinition = "varchar(15) default 'CHALLENGING'")
     private MissionStatus status;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false, name = "member_id")
     private Member member;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false, name = "mission_id")
     private Mission mission;
 
@@ -54,5 +54,10 @@ public class MemberMission extends BaseEntity {
         if (!member.getMemberMissionList().contains(this)) {
             member.getMemberMissionList().add(this);
         }
+    }
+
+    public void complete() {
+        this.status = MissionStatus.COMPLETE;
+        this.member.addPoint(this.mission.getReward());
     }
 }

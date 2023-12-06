@@ -5,4 +5,6 @@ import umc.spring.umcspring.Web.Dto.MemberMissionRequestDTO;
 
 public interface MemberMissionCommandService {
     MemberMission accept(MemberMissionRequestDTO.AcceptDTO request);
+
+    MemberMission complete(MemberMissionRequestDTO.CompleteDTO request);
 }

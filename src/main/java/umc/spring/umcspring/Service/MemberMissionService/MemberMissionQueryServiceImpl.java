@@ -26,6 +26,12 @@ public class MemberMissionQueryServiceImpl implements MemberMissionQueryService 
     }
 
     @Override
+    public boolean isChallenging(Long memberId, Long missionId) {
+        MemberMission memberMission = memberMissionRepository.findByMemberIdAndMissionId(memberId, missionId).get();
+        return memberMission.getStatus() == MissionStatus.CHALLENGING;
+    }
+
+    @Override
     @Transactional
     public Page<MemberMission> getMemberMissionList(Long memberId, MissionStatus status, Integer page) {
         Member member = memberRepository.findById(memberId).get();

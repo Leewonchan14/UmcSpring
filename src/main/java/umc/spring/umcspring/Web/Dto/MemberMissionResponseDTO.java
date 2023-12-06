@@ -23,8 +23,9 @@ public class MemberMissionResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class MemberMissionPreViewDTO{
-        private Long memberMissionId;
+    public static class MemberMissionPreViewDTO {
+        private Long memberId;
+        private Long missionId;
 
         //mission info
         private Integer reward;
@@ -48,5 +49,15 @@ public class MemberMissionResponseDTO {
         private Long totalElements;
         private Boolean isFirst;
         private Boolean isLast;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CompleteResultDTO {
+        private Long memberMissionId;
+        private Integer reward;
+        private LocalDateTime updatedAt;
     }
 }
