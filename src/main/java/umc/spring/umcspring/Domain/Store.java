@@ -31,7 +31,7 @@ public class Store extends BaseEntity {
     @ColumnDefault("0")
     private Float score;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false, name = "region_id")
     private Region region;
 
