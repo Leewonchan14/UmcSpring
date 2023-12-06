@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import umc.spring.umcspring.ApiPayload.ApiResponse;
 import umc.spring.umcspring.Converter.MemberMissionConvert;
+import umc.spring.umcspring.Domain.Enum.MissionStatus;
 import umc.spring.umcspring.Domain.Mapping.MemberMission;
 import umc.spring.umcspring.Service.MemberMissionService.MemberMissionCommandService;
 import umc.spring.umcspring.Service.MemberMissionService.MemberMissionQueryService;
@@ -38,7 +39,7 @@ public class MemberMissionRestController {
         return ApiResponse.onSuccess(MemberMissionConvert.toAcceptResultDTO(newMemberMission));
     }
 
-    @Operation(summary = "내가 진행중인 미션 목록 API", description = "내가 진행중인 미션들의 목록을 조회하는 API이며, 페이징을 포함합니다. query String 으로 page 번호를 주세요")
+    @Operation(summary = "내가 진행중인 미션 목록 API", description = "내가 진행중인 미션들의 목록을 조회하는 API이며, 페이징을 포함합니다. query String 으로 page, status를 받습니다.")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 성공"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH003", description = "access 토큰을 주세요!", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
@@ -51,10 +52,11 @@ public class MemberMissionRestController {
     @GetMapping("/members/{memberId}")
     public ApiResponse<MemberMissionResponseDTO.MemberMissionPreViewListDTO> getMemberMissionList(
             @PathVariable Long memberId,
+            @RequestParam(defaultValue = "CHALLENGING") MissionStatus status,
             @RequestParam(name = "page") Integer page
     ) {
         return ApiResponse.onSuccess(
-                MemberMissionConvert.toMemberMissionPreViewListDTO(memberMissionQueryService.getMemberMissionList(memberId, page))
+                MemberMissionConvert.toMemberMissionPreViewListDTO(memberMissionQueryService.getMemberMissionList(memberId,status, page))
         );
     }
 }

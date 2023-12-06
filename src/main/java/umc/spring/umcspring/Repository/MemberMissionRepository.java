@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import umc.spring.umcspring.Domain.Enum.MissionStatus;
 import umc.spring.umcspring.Domain.Mapping.MemberMission;
 import umc.spring.umcspring.Domain.Member;
 
@@ -13,5 +14,7 @@ public interface MemberMissionRepository extends JpaRepository<MemberMission, Lo
     boolean existsByMemberIdAndMissionId(Long memberId, Long missionId);
 
     Page<MemberMission> findByMember(Member member, Pageable pageable);
+
+    Page<MemberMission> findByMemberAndStatus(Member member, MissionStatus status, Pageable pageable);
 
 }
