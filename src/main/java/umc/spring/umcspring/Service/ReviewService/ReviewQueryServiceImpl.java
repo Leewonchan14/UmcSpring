@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.spring.umcspring.Domain.Member;
 import umc.spring.umcspring.Domain.Review;
 import umc.spring.umcspring.Domain.Store;
@@ -28,6 +29,7 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
     }
 
     @Override
+    @Transactional
     public Page<Review> getMyReviewList(Long storeId, Long memberId, Integer page) {
         Member member = memberRepository.findById(memberId).get();
 

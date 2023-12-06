@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.spring.umcspring.Domain.Enum.MissionStatus;
 import umc.spring.umcspring.Domain.Mapping.MemberMission;
 import umc.spring.umcspring.Domain.Member;
@@ -25,6 +26,7 @@ public class MemberMissionQueryServiceImpl implements MemberMissionQueryService 
     }
 
     @Override
+    @Transactional
     public Page<MemberMission> getMemberMissionList(Long memberId, MissionStatus status, Integer page) {
         Member member = memberRepository.findById(memberId).get();
 

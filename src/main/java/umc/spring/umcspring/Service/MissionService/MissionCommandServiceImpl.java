@@ -29,6 +29,7 @@ public class MissionCommandServiceImpl implements MissionCommandService {
     }
 
     @Override
+    @Transactional
     public Page<Mission> getMissionList(Long storeId, Integer page) {
         Store store = storeRepository.findById(storeId).get();
 

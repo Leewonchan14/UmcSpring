@@ -26,8 +26,8 @@ public class MemberMissionConvert {
                 .deadline(memberMission.getMission().getDeadline())
                 .missionSpec(memberMission.getMission().getMissionSpec())
                 .missionStatus(memberMission.getStatus())
-                .createdAt(memberMission.getMission().getCreatedAt())
-                .updatedAt(memberMission.getMission().getUpdatedAt())
+                .createdAt(memberMission.getCreatedAt())
+                .updatedAt(memberMission.getUpdatedAt())
                 .build();
     }
 
