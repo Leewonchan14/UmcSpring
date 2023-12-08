@@ -18,10 +18,7 @@ import umc.spring.umcspring.Domain.Mission;
 import umc.spring.umcspring.Service.MemberMissionService.MemberMissionCommandService;
 import umc.spring.umcspring.Service.MemberMissionService.MemberMissionQueryService;
 import umc.spring.umcspring.Service.MissionService.MissionCommandService;
-import umc.spring.umcspring.Validation.Annotation.IsChallengingMission;
-import umc.spring.umcspring.Validation.Annotation.ExistMemberMission;
-import umc.spring.umcspring.Validation.Annotation.ExistStore;
-import umc.spring.umcspring.Validation.Annotation.NotExistMemberMission;
+import umc.spring.umcspring.Validation.Annotation.*;
 import umc.spring.umcspring.Web.Dto.MemberMissionRequestDTO;
 import umc.spring.umcspring.Web.Dto.MemberMissionResponseDTO;
 import umc.spring.umcspring.Web.Dto.MissionRequestDTO;
@@ -81,11 +78,13 @@ public class MissionRestController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "access 토큰 모양이 이상함", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     @Parameters({
-            @Parameter(name = "memberId", description = "멤버의 아이디, path variable 입니다!")
+            @Parameter(name = "memberId", description = "멤버의 아이디, path variable 입니다!"),
+            @Parameter(name = "status", description = "미션의 상태, query string 입니다!"),
+            @Parameter(name = "page", description = "페이지 번호, query string 입니다!")
     })
     @GetMapping("/members/{memberId}")
     public ApiResponse<MemberMissionResponseDTO.MemberMissionPreViewListDTO> getMemberMissionList(
-            @PathVariable Long memberId,
+            @PathVariable @ExistMember Long memberId,
             @RequestParam(defaultValue = "CHALLENGING") MissionStatus status,
             @RequestParam(name = "page") Integer page
     ) {
