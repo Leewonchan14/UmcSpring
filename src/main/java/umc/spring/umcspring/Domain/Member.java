@@ -54,7 +54,7 @@ public class Member extends BaseEntity {
 
     private LocalDateTime inactiveDate;
 
-    @Column(nullable = false, length = 50)
+//    @Column(nullable = false, length = 50)
     private String email;
 
     @ColumnDefault("0")
