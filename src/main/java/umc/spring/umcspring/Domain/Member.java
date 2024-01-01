@@ -1,10 +1,13 @@
 package umc.spring.umcspring.Domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.umcspring.Domain.Common.BaseEntity;
 import umc.spring.umcspring.Domain.Enum.Gender;
 import umc.spring.umcspring.Domain.Enum.SocialType;
-import umc.spring.umcspring.Domain.Enum.Status;
+import umc.spring.umcspring.Domain.Enum.MemberStatus;
 import umc.spring.umcspring.Domain.Mapping.MemberAgree;
 import umc.spring.umcspring.Domain.Mapping.MemberMission;
 import umc.spring.umcspring.Domain.Mapping.MemberPrefer;
@@ -17,9 +20,10 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @Getter
-@Setter
 public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,13 +50,14 @@ public class Member extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "varchar(15) default 'ACTIVE'")
-    private Status status;
+    private MemberStatus memberStatus;
 
     private LocalDateTime inactiveDate;
 
     @Column(nullable = false, length = 50)
     private String email;
 
+    @ColumnDefault("0")
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

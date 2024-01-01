@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Builder
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewImage extends BaseEntity {
