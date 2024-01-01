@@ -21,13 +21,14 @@ public class MemberMissionConvert {
     }
     public static MemberMissionResponseDTO.MemberMissionPreViewDTO toMemberMissionPreViewDTO(MemberMission memberMission) {
         return MemberMissionResponseDTO.MemberMissionPreViewDTO.builder()
-                .memberMissionId(memberMission.getId())
+                .memberId(memberMission.getMember().getId())
+                .missionId(memberMission.getMission().getId())
                 .reward(memberMission.getMission().getReward())
                 .deadline(memberMission.getMission().getDeadline())
                 .missionSpec(memberMission.getMission().getMissionSpec())
                 .missionStatus(memberMission.getStatus())
-                .createdAt(memberMission.getMission().getCreatedAt())
-                .updatedAt(memberMission.getMission().getUpdatedAt())
+                .createdAt(memberMission.getCreatedAt())
+                .updatedAt(memberMission.getUpdatedAt())
                 .build();
     }
 
@@ -42,6 +43,14 @@ public class MemberMissionConvert {
                 .totalElements(memberMissionList.getTotalElements())
                 .listSize(memberMissionPreViewDTOS.size())
                 .memberMissionList(memberMissionPreViewDTOS)
+                .build();
+    }
+
+    public static MemberMissionResponseDTO.CompleteResultDTO toCompleteResultDTO(MemberMission memberMission) {
+        return MemberMissionResponseDTO.CompleteResultDTO.builder()
+                .memberMissionId(memberMission.getId())
+                .reward(memberMission.getMission().getReward())
+                .updatedAt(memberMission.getUpdatedAt())
                 .build();
     }
 }

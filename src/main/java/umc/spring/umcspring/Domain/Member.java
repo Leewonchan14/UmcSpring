@@ -76,4 +76,8 @@ public class Member extends BaseEntity {
     @Builder.Default
     private List<MemberPrefer> memberPreferList = new ArrayList<>();
 
+    public void addPoint(Integer point) {
+        this.point += point;
+    }
+
 }

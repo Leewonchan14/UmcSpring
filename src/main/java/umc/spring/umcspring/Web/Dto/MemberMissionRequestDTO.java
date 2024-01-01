@@ -12,4 +12,8 @@ public class MemberMissionRequestDTO {
         @ExistMission
         Long missionId;
     }
+
+    @Getter
+    public static class CompleteDTO extends AcceptDTO{
+    }
 }

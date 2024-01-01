@@ -2,6 +2,7 @@ package umc.spring.umcspring.Service.StoreService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.spring.umcspring.Converter.StoreConverter;
 import umc.spring.umcspring.Domain.Region;
 import umc.spring.umcspring.Domain.Store;
@@ -17,6 +18,7 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     private final RegionRepository regionRepository;
 
     @Override
+    @Transactional
     public Store createStore(StoreRequestDTO.StoreCreateDTO request, Long regionId) {
         
         Store newStore = StoreConverter.toStore(request);
